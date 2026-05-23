@@ -1,0 +1,140 @@
+
+■ E2E-Lauf · ./grundlayer.md · Branche Gastronomie · Overlay v2
+
+=== L1 · Discovery / Brief  [Haiku 4.5] ===
+# BRIEF — Café Bar Karibik
+
+**Zielgruppe primär:**
+Locals & Atmosphäre-Suchende (25–55 J.), Live-Musik-Publikum, Touristen — alle suchen einen Gegenpol zum Alltag: Wärme, Farbe, Garten-Gefühl.
+
+**Conversion-Ziel:**
+Tischreservierung per Telefon (09261 51361) + Event-Entdeckung + Malkurs / Galerie Ambiente kennenlernen.
+
+**3 Must-Haves:**
+1. Der tropische Garten als sinnliches Herzstück — konkrete Bilder (Palmenblätter, Abendlicht, Teich).
+2. Karibik + Regional + Vegetarisch — keine leeren Superlative, sondern Roti, Captain Karibik Bier, hausgemacht.
+3. Kunst & Events nebenbei erwähnen — Galerie Ambiente & Live-Musik nur mit Bezug zur Oase.
+
+**Tonalität:**
+Warmherzige Gastgeberin, Du-Form, entspannt, augenzwinkernd. Kurze aktive Sätze. Jeder Text endet mit konkreter Einladung (komm rein, ruf an, schau vorbei). Keine Floskeln, keine Superlative ohne Deckung, kein Klischee-Karibik.
+
+**Markenversprechen im Ohr:**
+"Komm rein — und für ein paar Stunden bist du woanders."
+   ↳ tokens 2988/402 · $0.00500
+
+=== L2 · IA / Struktur  [Haiku 4.5] ===
+# Landingpage-Struktur · Café Bar Karibik
+
+## Proposed Sections (in Reihenfolge)
+
+1. **Hero / Claim-Visual**
+   Unmittelbarer emotionaler Einstieg: "Karibik. Mitten in Kronach." + Gartenbild oder Abendlichtszenerie schafft Oasen-Gefühl sofort, bevor der Text anfängt.
+
+2. **Kurz-Pitch (Oase + Anlass)**
+   Konkrete Einladung für Locals: "Du wünschst dir einen Feierabend, der sich nach Urlaub anfühlt? Komm rein." — spricht das emotionale Kernversprechen an, ohne zu texten.
+
+3. **Öffnungszeiten + Direkter CTA (Tisch / Telefon)**
+   Sofort-Information & Conversion-Fokus: Wann, wo, wie anrufen — eliminiert Reibungspunkte für die Hauptzielgruppe (Locals, die einen Tisch wollen).
+
+4. **Garten-Erlebnis / Atmosphäre**
+   Bildhaft & sinnlich: Palmenblätter, Teich, buntes Leben — visualisiert die USP (tropischer Garten) und unterscheidet von jedem anderen Café in Kronach.
+
+5. **Gastronomie (Küche + Getränke)**
+   Konkrete Leckereien: Roti als Spezialität, Original Tobago Rum Punch, regionale Bio-Weine — konkrete Produkte statt Adjektive, spricht Geschmack an.
+
+6. **Events & Live-Musik**
+   Sekundärer Zugangsweg für Musikerstammtisch & Touristen: "Nächstes Konzert am…" — nutzt die bestehende Community und macht Wiederbesuch planbar.
+
+7. **Galerie Ambiente (Kunst, Malkurse)**
+   Unter-Rubrik mit Karibik-Bezug: "Originale von Martin Ludwig — an den Wänden, zum Mitnehmen oder gemeinsam malen." — spricht Sekundär-Zielgruppe an, ohne Hauptbotschaft zu stören.
+
+8. **Footer (NAP + Trust-Signale)**
+   Adressen, Öffnungszeiten, Google-Bewertung (4,6/5), Links zu Social/Galerie — operative Klarheit & Vertrauensanker.
+
+---
+
+**Begründung der Struktur:** Hero → emotionale Einladung → praktische Hürden senken (Öffnungszeiten, Telefon) → Oasen-Erlebnis visualisieren → Genuss konkretisieren → Events als Mehrwert → Kunst als Nebenleistung → operative Info. Folgt dem Locals-User-Journey (Emotion → Information → Aktion).
+   ↳ tokens 2981/748 · $0.00672
+
+=== L3 · Copy  [Sonnet 4.6] ===
+**Hero-H1 — Variante A**
+Karibik. Mitten in Kronach.
+
+**Hero-H1 — Variante B**
+Dein Tapetenwechsel. Stadtgraben 15.
+
+---
+
+**Subline**
+Tropischer Garten, Roti, Rum Punch — und ab Freitag schon ab 17 Uhr.
+
+---
+
+**CTA-Button**
+Tisch reservieren
+   ↳ tokens 2984/116 · $0.01069
+
+=== L4 · Visual-Prompt  [Sonnet 4.6] ===
+**Image Generation Prompt (EN)**
+
+Warm late-afternoon light floods a lush tropical courtyard in a small Franconian town. Terracotta and turquoise bistro chairs surround wooden tables set with drinks — a dark rum punch in a tall glass, condensation on the rim. Bird-of-paradise flowers (Strelitzia) and broad palm leaves frame the scene; a small stone pond reflects the golden hour glow. The surrounding walls are warm sandstone with white shutters; colourful paintings hang between climbing plants. A few guests sit relaxed, mid-conversation — no posed smiles, just genuine ease. Soft string lights are just starting to glow overhead. Atmosphere: unhurried, warm, a little lush — like a holiday that didn't require a flight. Photorealistic, shallow depth of field, golden-hour colour grading (amber, deep green, soft coral), no text overlays, no stock-photo stiffness.
+
+---
+
+**Alt-Text (DE)**
+
+Blick in den begrünten Innenhof der Café Bar Karibik in Kronach: Gäste sitzen bei Cocktails an bunten Bistrotischen, umgeben von Strelitzien, Palmenblättern und warmem Sandstein — Abendlicht, Lichterketten, entspannte Atmosphäre.
+   ↳ tokens 2981/311 · $0.01361
+
+=== L5 · Build-Plan  [Haiku 4.5] ===
+# L5 · Build-Plan — Café Bar Karibik
+
+## Section-Templates & Slot-Zuordnung
+
+| Section | Template | Copy-Slots | Visual-Slots | Notiz |
+|---------|----------|-----------|--------------|-------|
+| **Hero** | Full-Width Image + Overlay-Text | Headline ("Karibik. Mitten in Kronach."), Subline (Tisch-CTA), optional Short-Claim | Garten-Luftaufnahme oder Abendlicht-Szenerie (Palmen, Teich, beheizte Sitzbereiche) | Erste 2 Sekunden: Oase-Gefühl, kein Hochglanz |
+| **Teaser / Kurzprofil** | 3-spaltig (Text + Icon) | (1) Garten/Atmosphäre, (2) Cocktails & Küche, (3) Kunst & Events | Icons oder Mini-Fotos (Roti-Teller, Cocktail-Detail, Martin Ludwig-Bild) | Je eine konkrete Handlung pro Spalte |
+| **Angebot / USP** | 2er-Split (Text links, Bild rechts) oder Bildtext-Bande | "Der Garten als Herzstück" — 2–3 Sätze zum Tapetenwechsel; „Fast wetterunabhängig" kurz erklären | Garten bei Tag + bei Nacht (Abendbeleuchtung) | Atmoshäre vor Produkt |
+| **Gastronomie** | Content-Grid (2–3 Karten) | (1) Café tagsüber (Kaffee, Kuchen), (2) Bar abends (Cocktails, Tobago Rum Punch), (3) Küche (Roti, Burger, Vegetarisches) | Food-Fotos (konkret, nicht arrangiert); optional Hand beim Cocktail-Mixen | Keine Anglizismen; "hausgemacht" & "regional" betonen |
+| **Events / Live-Musik** | Kalender-Teaser oder Event-Liste | Nächste Events (Konzerte, Stammtisch, Themenabende) mit Datum & Anmeldung | Bild aus Konzert oder Garten-Szenerie mit Menschen | Link zu Telefon oder Event-Seite |
+| **Galerie Ambiente** | Text-Bild-Kombo (Bild links, Text rechts) | "Kunst von Martin Ludwig — jeden Donnerstag Malkurs, jeden Sommer Malreisen." Kurz + konkret; Preisspanne (89–850 €) optional | 2–3 Bilder von Ludwig (Originale an Wand, Menschen beim Malkurs) | Sub-Marke immer mit Karibik-Bezug verankern |
+| **CTA-Band** | Button-Zentral + Text | "Dein Tisch wartet." oder "Komm rein — wir freuen uns auf dich." Button: "Jetzt reservieren" | optional: dezentes Garten-Pattern im Hintergrund | Telefon + E-Mail prominent |
+| **Öffnungszeiten / Service-Info** | Inline-List oder Card-Grid | Öffnungszeiten (Mi–So), Telefon, Adresse, Hinweise (barrierefrei, WLAN, Parkplätze, kinderfreundlich) | Icons oder Silhouetten (Rollstuhl, Auto, Familie) | Schema.org-auszeichnung (LocalBusiness) |
+| **Google-Reviews / Bewertung** | Testimonial-Karussel (3–5 Karten) | Echte Gäste-Zitate (2–3 Worte pro Zitat, Quelle Google 4,6/5) | Mini-Avatar oder Foto (falls vorhanden) | Keine gekünstelte Auswahl |
+| **Kontakt / Footer** | 2-spaltig oder Inline | Adresse, Telefon, E-Mail, Web; Impressum & Datenschutz verlinkt | Karte (Google Maps embed) | Domain-Hinweis: galerie-ambiente.de mittelfristig anpassen |
+
+---
+
+## Ausgabe-Logik
+- **Tone**: Warmherzige Gastgeberin (Du-Form, konkrete Bilder, ein Gedanke pro Satz).
+- **Kein Platz für**: Klischees, Superlative, Anglizismus-Anhäufung, Multi-USP-Sätze.
+- **Jede Section endet mit**: Einladung oder konkreter Handlung (Tisch, Anruf, Event, Malkurs).
+   ↳ tokens 2969/1196 · $0.00895
+
+
+=== Reflector (Lernschleife) [Haiku 4.5] ===
+```json
+{
+  "forbid": [
+    "Generische Ortsbezüge ohne emotionalen Mehrwert (z.B. bloße Adresse)",
+    "Überladene Benefit-Aufzählung statt fokussiertem Versprechen"
+  ],
+  "refine": [
+    "H1-Variante A: Stärker – nutzt Kontrast (Karibik vs. Kronach) als Spannung",
+    "CTA präzisieren: 'Jetzt reservieren' statt neutral 'Tisch reservieren'"
+  ]
+}
+```
+   ↳ tokens 193/155 · $0.00097
+
+────────────────────────────────────────
+GESAMT LLM pro Design: $0.04594 ≈ €0.04226
++ Hero-Bild (Higgsfield, Schätzung): €0,12
+≈ €0.162 pro Design  ·  ×50/Monat ≈ €8.11
+Hinweis: mit Prompt-Caching (Basis+Overlay+Projekt konstant) sinkt der LLM-Anteil um ~80–90%.
+
+[Sandbox-Hinweis] L1–L5 liefen am 23.05.2026 in einem Durchlauf mit Overlay v2. Der Durchlauf
+wurde nach L5 vom 45-Sekunden-Limit der Ausführungsumgebung gestoppt; der Reflector-Schritt
+wurde mit identischem API-Call und dem echten L3-Output separat nachgezogen und hier ergänzt.
+EXITCODE: L1–L5 = 0 · Reflector separat ergänzt

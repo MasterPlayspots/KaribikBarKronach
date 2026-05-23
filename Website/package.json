@@ -1,0 +1,19 @@
+{
+  "name": "cafe-bar-karibik-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "qr": "node scripts/generate-qr.mjs"
+  },
+  "dependencies": {
+    "next": "^15.1.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "qrcode": "^1.5.4"
+  }
+}

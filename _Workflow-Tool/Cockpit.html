@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>/firstaudit_website · Erst-Audit-Cockpit</title>
+<style>
+  :root{
+    color-scheme: light;
+    --bg:#f6f7f5; --panel:#ffffff; --ink:#1f2733; --ink-soft:#5a6577;
+    --line:#e4e7e2; --accent:#0d9488; --accent-dark:#0b7a70; --accent-soft:#e4f4f2;
+    --amber:#d97706; --amber-soft:#fdf1e3;
+    --red:#dc2626; --orange:#ea8a04; --yellow:#caa204;
+    --radius:14px; --shadow:0 1px 3px rgba(20,30,40,.06),0 6px 20px rgba(20,30,40,.05);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.55;-webkit-font-smoothing:antialiased;padding:28px 18px 60px}
+  .wrap{max-width:980px;margin:0 auto}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow);padding:26px 28px;margin-bottom:20px}
+  h1{font-size:25px;letter-spacing:-.3px;margin-bottom:4px}
+  h2{font-size:17px;letter-spacing:-.2px;margin-bottom:14px;display:flex;align-items:center;gap:9px}
+  h2 .num{display:inline-flex;align-items:center;justify-content:center;width:25px;height:25px;
+    background:var(--accent-soft);color:var(--accent-dark);border-radius:7px;font-size:13px;font-weight:700}
+  p{color:var(--ink-soft);font-size:14.5px}
+  .lead{font-size:15px}
+  /* header */
+  .hero{background:linear-gradient(135deg,#0d9488,#0b7a70);color:#fff;border:none}
+  .hero h1{color:#fff}
+  .hero .badge{display:inline-block;background:rgba(255,255,255,.16);color:#fff;
+    font-size:11.5px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;
+    padding:5px 11px;border-radius:999px;margin-bottom:13px}
+  .hero p{color:rgba(255,255,255,.9);font-size:15px;max-width:680px}
+  .hero .meta{margin-top:14px;font-size:12.5px;color:rgba(255,255,255,.72)}
+  /* how it works */
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+  .card{background:var(--bg);border:1px solid var(--line);border-radius:11px;padding:16px 17px}
+  .card h3{font-size:14.5px;margin-bottom:6px;display:flex;align-items:center;gap:7px}
+  .card p{font-size:13px}
+  .tag{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;
+    padding:3px 8px;border-radius:6px;background:var(--accent-soft);color:var(--accent-dark)}
+  .variants{margin-top:16px;border-top:1px dashed var(--line);padding-top:14px}
+  .variants ol{margin-left:20px;font-size:13.5px;color:var(--ink-soft)}
+  .variants li{margin:5px 0}
+  /* starter */
+  .starter input{width:100%;font-size:15px;padding:13px 15px;border:1.5px solid var(--line);
+    border-radius:10px;font-family:inherit;color:var(--ink);background:#fcfdfc}
+  .starter input:focus{outline:none;border-color:var(--accent)}
+  .row{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+  button{font-family:inherit;font-size:14px;font-weight:600;border:none;border-radius:10px;
+    padding:12px 20px;cursor:pointer;transition:transform .06s,background .15s}
+  button:active{transform:translateY(1px)}
+  .btn-go{background:var(--accent);color:#fff}
+  .btn-go:hover{background:var(--accent-dark)}
+  .btn-ghost{background:var(--accent-soft);color:var(--accent-dark)}
+  .btn-ghost:hover{background:#d4ece9}
+  .output{margin-top:16px;display:none}
+  .output.show{display:block}
+  textarea{width:100%;min-height:132px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:12.5px;line-height:1.5;padding:14px;border:1.5px solid var(--accent);border-radius:10px;
+    background:var(--accent-soft);color:var(--ink);resize:vertical}
+  .hint{font-size:12px;color:var(--ink-soft);margin-top:8px}
+  .copied{color:var(--accent-dark);font-weight:700}
+  .note{background:var(--amber-soft);border:1px solid #f0d9b8;border-radius:10px;
+    padding:11px 14px;font-size:12.5px;color:#7a4f12;margin-top:14px}
+  /* pipeline */
+  .phase{display:flex;gap:14px;padding:13px 0;border-bottom:1px solid var(--line)}
+  .phase:last-child{border-bottom:none}
+  .pnum{flex:none;width:34px;height:34px;border-radius:9px;background:var(--accent-soft);
+    color:var(--accent-dark);font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center}
+  .phase.cp .pnum{background:#dbeafe;color:#1d4ed8}
+  .pbody{flex:1;min-width:0}
+  .pbody h4{font-size:14.5px;margin-bottom:2px}
+  .pbody p{font-size:12.8px}
+  .cpflag{display:inline-block;margin-top:5px;font-size:11px;font-weight:700;color:#1d4ed8;
+    background:#dbeafe;padding:2px 8px;border-radius:6px}
+  /* blindspots */
+  .bsgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-top:4px}
+  .bs{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 13px;
+    border-left:4px solid var(--line)}
+  .bs.r{border-left-color:var(--red)}
+  .bs.o{border-left-color:var(--orange)}
+  .bs.y{border-left-color:#caa204}
+  .bs .code{font-size:10.5px;font-weight:700;color:var(--ink-soft);letter-spacing:.5px}
+  .bs h4{font-size:13px;margin:2px 0 4px}
+  .bs p{font-size:11.5px;line-height:1.45}
+  .sev{font-size:10px;font-weight:700;padding:2px 7px;border-radius:5px;float:right}
+  .sev.r{background:#fde4e4;color:var(--red)}
+  .sev.o{background:#fdeccf;color:#b45309}
+  .sev.y{background:#fbf3cf;color:#92790a}
+  .legend{font-size:11.5px;color:var(--ink-soft);margin-top:12px;display:flex;gap:16px;flex-wrap:wrap}
+  .dot{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:5px;vertical-align:middle}
+  /* tree */
+  .tree{background:#0f1b1a;color:#cfe9e5;border-radius:11px;padding:18px 20px;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12.5px;
+    line-height:1.7;overflow-x:auto}
+  .tree .c{color:#5fb3aa}
+  .tree .h{color:#f0c987}
+  footer{text-align:center;font-size:12px;color:var(--ink-soft);margin-top:26px}
+  @media(max-width:720px){.two,.bsgrid{grid-template-columns:1fr}
+    body{padding:16px 10px 40px}.panel{padding:20px 18px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="panel hero">
+    <span class="badge">Workflow-Automation · v1.0</span>
+    <h1>/firstaudit_website</h1>
+    <p class="lead">Ein Link rein – ein vollständiger Wissens-Grundlayer raus. Universeller Erst-Audit-Workflow für jeden Dienstleistungs-Betrieb: Online-Analyse, Audit, Bilder, Blindspots, Marken-Hierarchie und fertige Ordnerstruktur 00–06 – weitgehend automatisch.</p>
+    <div class="meta">Funktioniert branchenübergreifend · Gastronomie · Beauty · Handwerk · Praxen · Kanzleien · Studios · Werkstätten · Agenturen · Einzelhandel</div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="panel">
+    <h2><span class="num">i</span> So funktioniert das Tool</h2>
+    <p>Das Tool besteht aus zwei Teilen, die zusammenspielen:</p>
+    <div class="two">
+      <div class="card">
+        <h3>🧩 <span>Der Skill</span> <span class="tag">Motor</span></h3>
+        <p>Der installierbare Skill <strong>firstaudit_website</strong> enthält die komplette 6-Phasen-Pipeline. Ist er installiert, genügt der Befehl <code>/firstaudit_website</code> oder ein in den Chat geposteter Geschäfts-Link – der Workflow startet von selbst.</p>
+      </div>
+      <div class="card">
+        <h3>🎛️ <span>Das Cockpit</span> <span class="tag">Oberfläche</span></h3>
+        <p>Diese Seite. Sie macht den Workflow sichtbar, erzeugt den fertigen Trigger-Befehl und zeigt Pipeline, Blindspot-Radar und Grundlayer-Vorschau auf einen Blick.</p>
+      </div>
+    </div>
+    <div class="variants">
+      <strong style="font-size:13.5px">Drei Wege, den Workflow zu starten:</strong>
+      <ol>
+        <li><strong>Mit Skill (empfohlen):</strong> <code>/firstaudit_website</code> aufrufen oder Link in den Chat posten – fertig.</li>
+        <li><strong>Über das Cockpit:</strong> unten Link einfügen → Trigger-Prompt erzeugen → kopieren → in den Chat einfügen.</li>
+        <li><strong>Ohne Skill:</strong> Inhalt von <code>SKILL.md</code> + Link in den Chat geben.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- STARTER -->
+  <div class="panel starter">
+    <h2><span class="num">▶</span> Workflow starten</h2>
+    <p>Link zum Geschäft einfügen (Website, Google-Maps-Eintrag oder Social-Media-Profil):</p>
+    <input id="link" type="text" placeholder="https://www.beispiel-betrieb.de" autocomplete="off">
+    <div class="row">
+      <button class="btn-go" onclick="generate()">Trigger-Prompt erzeugen</button>
+      <button class="btn-ghost" onclick="reset_()">Zurücksetzen</button>
+    </div>
+    <div class="output" id="out">
+      <textarea id="prompt" readonly></textarea>
+      <div class="row">
+        <button class="btn-go" onclick="copyPrompt()">In Zwischenablage kopieren</button>
+        <span class="hint" id="copyStatus">Diesen Text in den Chat einfügen, um den Workflow zu starten.</span>
+      </div>
+    </div>
+    <div class="note">💡 Ist der Skill installiert, brauchst du das Cockpit nicht zwingend – ein in den Chat geposteter Link genügt. Das Cockpit hilft beim sauberen, vollständigen Trigger und als Übersicht.</div>
+  </div>
+
+  <!-- PIPELINE -->
+  <div class="panel">
+    <h2><span class="num">⛓</span> Die Pipeline – 6 Phasen, 3 Kontrollpunkte</h2>
+    <p>Zwischen den Kontrollpunkten arbeitet der Workflow autonom. An den 🔵 Kontrollpunkten gibt es eine kurze Rückfrage.</p>
+    <div style="margin-top:10px">
+      <div class="phase"><div class="pnum">1</div><div class="pbody">
+        <h4>Erfassung &amp; Branchen-Check</h4>
+        <p>Link abrufen, Name, Branche, Standort und Art der Dienstleistung bestimmen.</p>
+        <span class="cpflag">🔵 Kontrollpunkt 1 — Branche, Quellen-Tiefe &amp; Inhaltstiefe bestätigen</span>
+      </div></div>
+      <div class="phase"><div class="pnum">2</div><div class="pbody">
+        <h4>Online-Analyse</h4>
+        <p>Website tief (Sitemap, alle Unterseiten, Bilder, Legacy-Strukturen), Social Media, Bewertungsportale, Branchenverzeichnisse, lokale Quellen, Presse.</p>
+      </div></div>
+      <div class="phase"><div class="pnum">3</div><div class="pbody">
+        <h4>Audit</h4>
+        <p>Alle belegten Fakten strukturiert erfassen: Kontakt, Zeiten, Leistungen, Preise, Bewertungen, Attribute, Rechtliches.</p>
+      </div></div>
+      <div class="phase"><div class="pnum">4</div><div class="pbody">
+        <h4>Blindspot-Erkennung</h4>
+        <p>12 universelle Blindspot-Kategorien prüfen, je Befund Schweregrad und Empfehlung, priorisierte Quick Wins.</p>
+      </div></div>
+      <div class="phase cp"><div class="pnum">5</div><div class="pbody">
+        <h4>Marken- &amp; Hierarchie-Analyse</h4>
+        <p>Haupt- und Sub-Angebote erkennen, Marken-Hierarchie und Namensschreibweise vorschlagen.</p>
+        <span class="cpflag">🔵 Kontrollpunkt 2 — Marken-Hierarchie bestätigen</span>
+      </div></div>
+      <div class="phase cp"><div class="pnum">6</div><div class="pbody">
+        <h4>Grundlayer-Aufbau</h4>
+        <p>Vollständige Ordnerstruktur 00–06 anlegen und mit den Betriebsdaten befüllen.</p>
+        <span class="cpflag">🔵 Kontrollpunkt 3 — Freigabe vor dem Anlegen der Dateien</span>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- BLINDSPOT RADAR -->
+  <div class="panel">
+    <h2><span class="num">🕳</span> Blindspot-Radar — 12 universelle Kategorien</h2>
+    <p>In jeder Analyse geprüft. Der Workflow markiert pro Kategorie Befund und Schweregrad.</p>
+    <div class="bsgrid" id="bsgrid"></div>
+    <div class="legend">
+      <span><span class="dot" style="background:#dc2626"></span>hoch — rechtlich / geschäftskritisch</span>
+      <span><span class="dot" style="background:#ea8a04"></span>mittel — Reichweite / Konversion</span>
+      <span><span class="dot" style="background:#caa204"></span>niedrig — Optimierung</span>
+    </div>
+  </div>
+
+  <!-- GRUNDLAYER -->
+  <div class="panel">
+    <h2><span class="num">🧱</span> Das Ergebnis — der Grundlayer</h2>
+    <p>Pro Betrieb entsteht dieselbe universelle Wissensstruktur:</p>
+    <div class="tree">
+<span class="h">[Betriebsname]/</span>
+├── 00_UEBERSICHT.md
+├── 01_Marke/              <span class="c"># Hierarchie · Positionierung · Zielgruppen</span>
+├── 02_Dienstleistung/     <span class="c"># Leistungen + fertige Service-Texte</span>
+├── 03_Social-Media/       <span class="c"># Strategie · Bios · Content-Säulen · Vorlagen</span>
+├── 04_Creative-Wording/   <span class="c"># Markenstimme · Slogans · Textbausteine</span>
+├── 05_Fakten-und-Assets/  <span class="c"># NAP · Zeiten · Bild-Index · Präsenzen</span>
+└── 06_Analysen/           <span class="c"># Audit-Bericht · Online-Analyse + Blindspots</span>
+    </div>
+    <p style="margin-top:12px">Referenz-Implementierung: der vollständig ausgearbeitete Ordner <strong>Cafe-Bar-Karibik/</strong>.</p>
+  </div>
+
+  <footer>/firstaudit_website v1.0 · Skill <code>firstaudit_website</code> + Cockpit · branchenuniversal</footer>
+</div>
+
+<script>
+  var BS = [
+    ['r','BS-01','Mehrfach- &amp; Legacy-Websites','Alte/zweite Website-Version noch online? Duplicate Content.'],
+    ['r','BS-02','Unvollständiges Impressum','Pflichtangaben nach §5 DDG vorhanden? Abmahnrisiko.'],
+    ['r','BS-03','Datenschutz-Mängel','Platzhalter, fehlende Dienste, kein Consent?'],
+    ['o','BS-04','Marken-/Namens-Inkonsistenz','Name überall identisch? Tippfehler, Varianten?'],
+    ['o','BS-05','Defekte Elemente','Shop, Formulare, Buttons, Downloads – funktionieren sie?'],
+    ['o','BS-06','Veraltete Inhalte','Zeiten, Preise, Termine aktuell?'],
+    ['o','BS-07','Inhalt nur als Bild/PDF','Karte/Preise nur als Grafik – nicht durchsuchbar.'],
+    ['o','BS-08','Fragmentierte Social-Präsenz','Doppelte/konkurrierende Profile pro Plattform?'],
+    ['y','BS-09','SEO- &amp; Technik-Schwächen','https, Canonical, Schema.org, Ladezeit, Mobile.'],
+    ['y','BS-10','Inkonsistente NAP-Daten','Name/Adresse/Telefon überall gleich?'],
+    ['y','BS-11','Ungenutzte Portal-Präsenz','Einträge beansprucht? Bewertungen beantwortet?'],
+    ['y','BS-12','Übersehene Kanäle &amp; Assets','Ungelinkte Kanäle, Presse, Bildarchive, Tools.']
+  ];
+  var sevLabel = {r:'hoch',o:'mittel',y:'niedrig'};
+  (function(){
+    var g = document.getElementById('bsgrid'), h='';
+    for(var i=0;i<BS.length;i++){var b=BS[i];
+      h+='<div class="bs '+b[0]+'"><span class="sev '+b[0]+'">'+sevLabel[b[0]]+'</span>'+
+         '<div class="code">'+b[1]+'</div><h4>'+b[2]+'</h4><p>'+b[3]+'</p></div>';}
+    g.innerHTML=h;
+  })();
+
+  function buildPrompt(link){
+    return '/firstaudit_website — Erst-Audit für folgenden Betrieb:\n'+
+      link+'\n\n'+
+      'Führe die komplette Pipeline aus dem Skill »firstaudit_website« aus:\n'+
+      'Phase 1 — Erfassung & Branchen-Check (mit Kontrollpunkt 1)\n'+
+      'Phase 2 — Online-Analyse (Website tief, Social Media, Bewertungsportale, '+
+      'Branchenverzeichnisse, lokale Quellen, Presse)\n'+
+      'Phase 3 — Audit (strukturierte Grunddaten)\n'+
+      'Phase 4 — Blindspot-Erkennung (12 universelle Kategorien)\n'+
+      'Phase 5 — Marken- & Hierarchie-Analyse (mit Kontrollpunkt 2)\n'+
+      'Phase 6 — Grundlayer-Aufbau (mit Kontrollpunkt 3): vollständige '+
+      'Ordnerstruktur 00–06 anlegen und befüllen.\n\n'+
+      'Bitte mit den 3 Kontrollpunkten arbeiten, dazwischen autonom durchlaufen.';
+  }
+  function generate(){
+    var link = document.getElementById('link').value.trim();
+    var status = document.getElementById('copyStatus');
+    if(!link || link.indexOf('.')===-1){
+      document.getElementById('link').focus();
+      document.getElementById('link').style.borderColor='#dc2626';
+      return;
+    }
+    document.getElementById('link').style.borderColor='';
+    if(!/^https?:\/\//i.test(link)) link='https://'+link;
+    document.getElementById('prompt').value = buildPrompt(link);
+    document.getElementById('out').classList.add('show');
+    status.textContent='Diesen Text in den Chat einfügen, um den Workflow zu starten.';
+    status.className='hint';
+  }
+  function copyPrompt(){
+    var ta=document.getElementById('prompt'), status=document.getElementById('copyStatus');
+    ta.focus(); ta.select(); ta.setSelectionRange(0,99999);
+    var done=function(){status.textContent='✓ Kopiert — jetzt in den Chat einfügen.';status.className='hint copied';};
+    try{
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(ta.value).then(done,function(){
+          try{document.execCommand('copy');done();}catch(e){
+            status.textContent='Text ist markiert — mit Strg/Cmd+C kopieren.';status.className='hint';}
+        });
+      }else{
+        document.execCommand('copy');done();
+      }
+    }catch(e){
+      status.textContent='Text ist markiert — mit Strg/Cmd+C kopieren.';status.className='hint';
+    }
+  }
+  function reset_(){
+    document.getElementById('link').value='';
+    document.getElementById('link').style.borderColor='';
+    document.getElementById('prompt').value='';
+    document.getElementById('out').classList.remove('show');
+  }
+  document.getElementById('link').addEventListener('keydown',function(e){
+    if(e.key==='Enter')generate();
+  });
+</script>
+</body>
+</html>

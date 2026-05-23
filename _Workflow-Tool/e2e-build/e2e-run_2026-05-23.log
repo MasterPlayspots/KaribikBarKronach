@@ -1,0 +1,119 @@
+
+■ E2E-Lauf · ./grundlayer.md · Branche Gastronomie · Overlay v1
+
+=== L1 · Discovery / Brief  [Haiku 4.5] ===
+# L1 · Discovery Brief — Café Bar Karibik
+
+**Zielgruppe (Kern):**
+Atmosphäre-Suchende Locals (25–55 J.), Live-Musik-Publikum, Touristen aus Festung/Frankenwald — alle suchen einen Gegenpol zum Alltag: Wärme, Farbe, Urlaubsgefühl ohne Flug.
+
+**Conversion-Ziel:**
+Tischreservierung telefonisch (09261 51361); Events & Live-Musik entdecken; Galerie Ambiente / Malkurse kennenlernen.
+
+**3 Must-Haves:**
+1. **Garten als Herzstück** — tropischer Innenhof mit Palmen, Teich, Kunstskulpturen ist das Unikat in Kronach, nicht die Speisekarte.
+2. **Konkrete Szenen statt Adjektive** — "Roti mit regionalem Gemüse unter Palmenblättern" schlägt "kulinarische Reise"; "Cocktail im Abendlicht" schlägt "exotisches Paradies".
+3. **Gastgeberin-Ton** — warm, einladend, Du-Form, kurze Sätze, jeder Text endet mit echter Einladung (kein Imperativ-Geschrei).
+
+**Tonalität:**
+Entspannt & echt, augenzwinkernd, sinnlich-bildhaft, keine Floskeln / Superlative / Anglizismen.
+   ↳ tokens 2957/388 · $0.00490
+
+=== L2 · IA / Struktur  [Haiku 4.5] ===
+# Section-Liste — Landingpage Café Bar Karibik
+
+1. **Hero** — Emotionaler Einstieg: "Karibik. Mitten in Kronach." + tropischer Garten als Bildmotiv. Sofortige Orientierung & Marken-Claim.
+
+2. **Atmosphäre / Garten** — Das USP sinnlich zeigen: überdachte Sitzbereiche, Strelitzie, Teich, bunten Tische. Warum man *hier* sitzt, nicht woanders.
+
+3. **Gastronomie (Café / Bar / Küche)** — Konkrete Angebote mit Bildern: Roti, Cocktail-Gruppe, "Captain Karibik vom Fass", Kaffeemoment. Für verschiedene Tageszeiten (Café tagsüber, Bar abends).
+
+4. **Events & Live-Musik** — Nächste Termine, Open-Air-Bühne, Musikerstammtisch, Tanzabende. Zielgruppe Live-Musik-Publikum & Touristen abholen.
+
+5. **Galerie Ambiente** — Bilder von Martin Ludwig, Malkurse (donnerstags), Malreisen. Als Zusatz-Erlebnis positioniert, nicht gleichrangig.
+
+6. **Reservierung & Öffnungszeiten** — Klare Handlung: Telefonisch reservieren (09261 51361), Anfahrt, Öffnungszeiten (Mi–Do 19–22, Fr 17–24, Sa 14–24, So 14–22). CTAs gut sichtbar.
+
+7. **Bewertungen / Social Proof** — Google 4,6/5 (288), Gästestimmen (kurz, authentisch). Vertrauen bauen.
+
+8. **Footer / Kontakt** — NAP (Adresse, Telefon, E-Mail), Links (Website, Social), Hinweis auf barrierefreier Zugang & kostenlose Parkplätze.
+   ↳ tokens 2950/516 · $0.00553
+
+=== L3 · Copy  [Sonnet 4.6] ===
+**Hero H1 — Variante A**
+Dein Garten wartet. Mitten in Kronach.
+
+**Hero H1 — Variante B**
+Karibik. Stadtgraben 15.
+
+---
+
+**Subline**
+Tropischer Garten, hausgemachte Küche, Cocktails bis Mitternacht — komm einfach rein.
+
+---
+
+**CTA-Button**
+Tisch reservieren
+   ↳ tokens 2953/113 · $0.01055
+
+=== L4 · Visual-Prompt  [Sonnet 4.6] ===
+**Image Generation Prompt (EN)**
+
+A sun-drenched tropical garden courtyard in a historic sandstone building in a small German town. Late afternoon golden light filters through wide banana and palm leaves onto colorful mismatched wooden tables and chairs. A still ornamental pond reflects green foliage. Handmade ceramic mugs and a deep-red rum punch in a curved glass sit on a weathered wooden table. Warm string lights begin to glow in the background. Lush strelitzia plants frame the scene. The atmosphere is relaxed, intimate, unhurried — like a private garden in the Caribbean transported to a Franconian courtyard. Real, lived-in feel: no stock-photo perfection, slight imperfections welcome. Color palette: deep tropical greens, terracotta, warm amber, coral accents. No people, focus on place and mood. Aspect ratio 16:9, photorealistic, shallow depth of field, golden-hour warmth.
+
+---
+
+**Alt-Text (DE)**
+
+Blick in den begrünten Innenhof der Café Bar Karibik in Kronach: Palmenblätter und Strelitzien rahmen bunte Holztische im goldenen Abendlicht ein, auf dem Tisch stehen ein Rum Punch und ein Kaffeebecher — mitten im historischen Stadtgraben, mit dem Gefühl eines tropischen Sommernachmittags.
+   ↳ tokens 2950/331 · $0.01381
+
+=== L5 · Build-Plan  [Haiku 4.5] ===
+# L5 Build-Plan — Café Bar Karibik
+
+## Section-Templates & Content-Slots
+
+| **Section** | **Template** | **Copy-Slots** | **Visual-Slots** | **Anmerkung** |
+|---|---|---|---|---|
+| **Hero** | Full-Width Image + Overlay Text | Claim "Karibik. Mitten in Kronach." + CTA Tisch reservieren | Garten bei Abendlicht oder Palmenblätter/Teich | Warmton, Einladung statt Drama |
+| **Markenkern (Oase)** | Text + Side Image | "Komm rein — und für ein paar Stunden bist du woanders." + konkrete Beschreibung Garten/Atmosphäre | Garten mit bunten Tischen, Lichtstimmung | Keine Floskeln; fokus auf Gartengefühl |
+| **Drei Säulen** | 3-Col Grid (Icon/Text/Bild) | (1) Tapetenwechsel / Garten · (2) Genuss regional & vegetarisch · (3) Kunst & Kreativität | Garten · Roti-Teller / Cocktail · Galeriebilder MLudwig | Kurz, aktiv, sinnlich |
+| **Gastronomie** | Tabs (Café / Bar / Küche) | Öffnungszeiten · Spezialitäten (Roti, Cocktails, Captain Karibik, Kuchen) mit konkreten Namen | Kaffee-Situation · Cocktailglas · Roti-Nahaufnahme · Garten-Essbereich | Konkrete Geschmacksbilder |
+| **Events & Live-Musik** | Timeline / Event-Kacheln | Musikerstammtisch, Tanzabend, Themen-Menü, "Kunst im Sommergarten" + CTAs | Garten bei Event-Stimmung, Menschen beim Feiern | Lokale Events, keine generischen Konzerte |
+| **Galerie Ambiente** | Text + Image Grid | Künstler Martin Ludwig · Bilderverkauf · Malkurse (Do.) · Malreisen | 3–4 Werke MLudwig (farbig, repräsentativ) | Sub-Marke immer mit Karibik-Bezug |
+| **Reservierung / Kontakt** | Contact Block + Inline CTA | Telefon 09261 51361 · Öffnungszeiten · Adresse Stadtgraben 15 | Garten-Stimmung oder Tischsituation | Alle CTAs auf Telefon (markenkonform) |
+| **Testimonial** | Carousel / Kacheln | 3–4 echte Zitate (Google 4,6★) — Fokus: Atmosphäre, Garten, Lokalität | Profilbilder/Initialen | Kurze Zitate, keine gekürzte Romane |
+| **Footer** | Standard + Brand Twist | Legal-Links (Impressum, Datenschutz fix) · Social · Öffnungszeiten · Claim | Markenfarben (Warmtöne), Palmen-Ornament | korrekte NAP · Domain-Hinweis (galerie-ambiente.de aktuell) |
+
+---
+
+## Kritische Copy-Prinzipien
+- **Keine Floskeln**: Nicht "einzigartiges Geschmackserlebnis" — stattdessen: "Roti wie in der Karibik, mit regionalem Gemüse aus Franken."
+- **Sinnlich & konkret**: Cocktail-Namen nennen, Lichtstimmung beschreiben, Menschen zeigen.
+- **Jeder Text endet mit Einladung**: "Komm vorbei / Ruf an / Schau herein."
+- **Du-Form durchgehend**, "wir" für das Haus.
+- **
+   ↳ tokens 2938/1000 · $0.00794
+
+=== Reflector (Lernschleife) [Haiku 4.5] ===
+```json
+{
+  "forbid": [
+    "Geografische Inkonsistenz: 'Kronach' vs. 'Karibik' verwirrt die Ortsidentität",
+    "Zu viele USPs in Subline: Garten + Küche + Cocktails zerstreuen statt fokussieren"
+  ],
+  "refine": [
+    "Hero-Varianten auf ein klares Motiv einigen (z.B. Karibik-Gefühl als Unique-Selling-Point)",
+    "Subline auf Kernbotschaft reduzieren + spezifisches Angebot hervorheben (z.B. 'Tropisches Flair. Hausmacher-Speisen. Jetzt Tisch sichern.')"
+  ]
+}
+```
+   ↳ tokens 190/204
+
+────────────────────────────────────────
+GESAMT LLM pro Design: $0.04394 ≈ €0.04043
++ Hero-Bild (Higgsfield, Schätzung): €0,12
+≈ €0.160 pro Design  ·  ×50/Monat ≈ €8.02
+Hinweis: mit Prompt-Caching (Basis+Overlay+Projekt konstant) sinkt der LLM-Anteil um ~80–90%.
+EXITCODE=0

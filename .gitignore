@@ -1,0 +1,18 @@
+# === Abhängigkeiten & Build-Artefakte ===
+node_modules/
+.next/
+out/
+dist/
+build/
+.vercel/
+
+# === Geheimnisse — NIEMALS committen ===
+# Schützt u. a. _Workflow-Tool/e2e-build/.env mit dem echten API-Key.
+.env
+.env.local
+.env.*.local
+
+# === System ===
+.DS_Store
+Thumbs.db
+*.tmp
