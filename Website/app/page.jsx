@@ -1,6 +1,5 @@
-/* Café Bar Karibik — Landingpage (Dummy / Vorschau)
-   Aufbau nach der Design-Workflow-Blaupause (L2 IA + L5 Build-Plan),
-   Inhalte aus dem Wissenssystem (Ordner 01-05). */
+/* Café Bar Karibik — Landingpage
+   Mit echten Fotos und authentischem Ambiente */
 
 const TEL = "tel:+49926151361";
 const WA_NUMBER = "4915227658034";
@@ -8,20 +7,30 @@ const WA_RESERVE =
   "https://wa.me/" + WA_NUMBER + "?text=" +
   encodeURIComponent("Hallo Café Bar Karibik — ich möchte gern einen Tisch reservieren für:");
 
+// Image URLs from provided photos
+const IMAGES = {
+  exterior_evening: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/610001_211015_143345OK_galerie1_800px-bufgTDwHRw7iTLMR4f5uspZkYnhBVc.jpg",
+  exterior_day: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Bildschirmfoto_23-5-2026_13028_www.google.com-xYxmROqQemVvmkF2YSGWLqpbGWeEt2.jpeg",
+  interior_seating: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/610001_211015_143345OK_galerie2_800px-PgL2qA6IP4qxBvR0q3PtuUpSyHLHLJ.jpg",
+  bar_pirate: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/610001_211015_143345OK_galerie6_800px-2ZQZh9Tk5TSB3JQErIN59O4ZueuIxg.jpg",
+  pug: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/610001_211015_143345OK_galerie10_800px-QmyJEmLYy3eXmmRpcNjaLNPzfMoGsH.jpg",
+};
+
 export default function Home() {
   return (
     <>
-      <div className="demo-note">
-        Vorschau-Dummy · Layout und Texte aus dem Wissenssystem · einige Fotos noch Platzhalter
-      </div>
-
       {/* ---------- Header ---------- */}
       <header className="site-header">
         <div className="wrap">
-          <div className="brand">Café Bar <b>Karibik</b></div>
+          <div className="brand">
+            <span className="main-title">
+              <span className="cafe-bar">Café Bar</span> <b>Karibik</b>
+            </span>
+            <span className="sub">Ambiente &amp; Cocktails</span>
+          </div>
           <nav className="nav">
-            <a href="#garten">Garten</a>
-            <a href="#kueche">Küche</a>
+            <a href="#ambiente">Ambiente</a>
+            <a href="#kueche">Küche &amp; Bar</a>
             <a href="#events">Events</a>
             <a href="#galerie">Galerie</a>
             <a href="#kontakt">Kontakt</a>
@@ -41,12 +50,12 @@ export default function Home() {
             </p>
             <div className="hero-actions">
               <a className="btn btn-primary" href={WA_RESERVE}>Per WhatsApp reservieren</a>
-              <a className="btn btn-light" href="#kueche">Zur Küche</a>
+              <a className="btn btn-light" href="#kueche">Zur Karte</a>
             </div>
             <div className="hero-meta">
-              <span>📍 Stadtgraben 15, Kronach</span>
-              <span>🕒 Mittwoch bis Sonntag geöffnet</span>
-              <span>★ 4,6 bei Google</span>
+              <span>Stadtgraben 15, Kronach</span>
+              <span>Mi – So geöffnet</span>
+              <span>4,6 bei Google</span>
             </div>
           </div>
         </section>
@@ -64,7 +73,11 @@ export default function Home() {
             </div>
             <div className="pillars">
               <div className="pillar">
-                <div className="dot">🌴</div>
+                <div className="dot">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M12 2v20M8 6c0-1.5 1.5-3 4-3s4 1.5 4 3c0 4-4 3-4 8M8 18c0 1.5 1.5 3 4 3s4-1.5 4-3" />
+                  </svg>
+                </div>
                 <h3>Die Oase</h3>
                 <p>
                   Ein begrünter Innenhof mit Strelitzie, Palmenblättern und Teich.
@@ -72,7 +85,11 @@ export default function Home() {
                 </p>
               </div>
               <div className="pillar">
-                <div className="dot">🍹</div>
+                <div className="dot">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M8 22h8M12 11v11M5.5 11h13a1 1 0 0 0 .93-1.37L17 3H7L4.57 9.63A1 1 0 0 0 5.5 11Z" />
+                  </svg>
+                </div>
                 <h3>Genuss mit Haltung</h3>
                 <p>
                   Karibisch inspirierte Küche, regional gedacht: Roti, hausgemachte
@@ -80,7 +97,11 @@ export default function Home() {
                 </p>
               </div>
               <div className="pillar">
-                <div className="dot">🎨</div>
+                <div className="dot">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M2 12h5M17 12h5M12 2v5M12 17v5M4.93 4.93l3.54 3.54M15.54 15.54l3.54 3.54M4.93 19.07l3.54-3.54M15.54 8.46l3.54-3.54" />
+                  </svg>
+                </div>
                 <h3>Kunst und Live-Musik</h3>
                 <p>
                   An den Wänden hängt die Galerie Ambiente, auf der Bühne spielt
@@ -91,40 +112,78 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ---------- Garten ---------- */}
-        <section id="garten" className="alt">
+        {/* ---------- Ambiente ---------- */}
+        <section id="ambiente" className="alt">
           <div className="wrap">
             <div className="split">
               <div className="copy">
-                <p className="eyebrow">Der Garten</p>
+                <p className="eyebrow">Das Ambiente</p>
                 <h2>Dein Tapetenwechsel um die Ecke</h2>
                 <p>
-                  Palmenblätter werfen Schatten auf bunte Tische, der Teich glitzert,
-                  zwischen den Pflanzen stehen Kunstskulpturen. Das historische
-                  Sandsteingebäude mit weißen Fensterläden bildet den Rahmen.
+                  Das historische Sandsteingebäude mit weißen Fensterläden bildet 
+                  den perfekten Rahmen für karibisches Flair mitten in Franken.
+                  Zwischen Kunstwerken, warmer Beleuchtung und gemütlichen Sitzecken 
+                  vergisst man schnell die Zeit.
                 </p>
                 <p>
-                  Die überdachten, mit Heizstrahlern ausgestatteten Sitzbereiche
-                  machen den Garten fast wetterunabhängig — such dir eine Ecke,
-                  hier darf man bleiben.
+                  Ob an der Bar mit Blick auf die Rum-Auswahl, im gemütlichen 
+                  Gastraum mit der wechselnden Kunstausstellung oder draußen 
+                  vor der historischen Fassade — hier darf man bleiben.
                 </p>
                 <div className="tags">
-                  <span className="tag">Sitzplätze im Freien</span>
-                  <span className="tag">Überdacht und beheizt</span>
-                  <span className="tag">Bedienung am Tisch</span>
+                  <span className="tag">Gemütliche Atmosphäre</span>
+                  <span className="tag">Kunstgalerie</span>
+                  <span className="tag">Historisches Gebäude</span>
                   <span className="tag">Kinderfreundlich</span>
                 </div>
               </div>
-              <div className="ph">
-                <span className="ph-label">Foto folgt</span>
-                <span className="ph-title">Innenhof mit Palmen und Teich</span>
+              <div className="shot">
+                <img
+                  src={IMAGES.interior_seating}
+                  alt="Gemütlicher Gastraum mit Kunstwerken, Muschel-Kronleuchter und warmer Beleuchtung"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ---------- Bar Section ---------- */}
+        <section>
+          <div className="wrap">
+            <div className="split" style={{ gridTemplateColumns: '1fr 1.05fr' }}>
+              <div className="shot">
+                <img
+                  src={IMAGES.bar_pirate}
+                  alt="Die Bar mit Karibik-Karte, Rum-Flaschen und dem freundlichen Piraten"
+                />
+              </div>
+              <div className="copy">
+                <p className="eyebrow">Die Bar</p>
+                <h2>Caribbean Vibes seit 2004</h2>
+                <p>
+                  Unser Pirat begrüßt dich an der Bar mit einer Auswahl an 
+                  karibischen Rums, tropischen Cocktails und regionalen Weinen.
+                  Von Tobago Rum Punch bis zum selbstgemachten Eiskaffee — 
+                  hier wird mit Liebe gemixt.
+                </p>
+                <p>
+                  Die karibische Karte zeigt unsere Inspiration: Jamaika, 
+                  Trinidad, Tobago und all die Inseln, deren Geschmäcker 
+                  du hier in Kronach erleben kannst.
+                </p>
+                <div className="tags">
+                  <span className="tag">Karibische Rums</span>
+                  <span className="tag">Tropical Cocktails</span>
+                  <span className="tag">Regionale Weine</span>
+                  <span className="tag">Alkoholfreie Cocktails</span>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
         {/* ---------- Küche ---------- */}
-        <section id="kueche">
+        <section id="kueche" className="alt">
           <div className="wrap">
             <div className="section-head">
               <p className="eyebrow">Küche und Bar</p>
@@ -139,43 +198,43 @@ export default function Home() {
                 <div className="thumb" />
                 <div className="body">
                   <h3>Roti</h3>
-                  <p>Die Spezialität des Hauses: gefüllte indisch-karibische Teigfladen.</p>
+                  <p>Die Spezialität des Hauses: gefüllte indisch-karibische Teigfladen mit verschiedenen Füllungen.</p>
                 </div>
               </div>
               <div className="card">
                 <div className="thumb c2" />
                 <div className="body">
                   <h3>Burger</h3>
-                  <p>100 % Weiderind, dazu Fisch- und vegetarische Varianten.</p>
+                  <p>Tobago Boy mit 100% Weiderind, dazu Fish Burger und vegetarische Varianten.</p>
                 </div>
               </div>
               <div className="card">
                 <div className="thumb c3" />
                 <div className="body">
-                  <h3>Bar und Cocktails</h3>
-                  <p>Original Tobago Rum Punch und „Captain Karibik" vom Fass.</p>
+                  <h3>Tropical Cocktails</h3>
+                  <p>Original Tobago Rum Punch, Piña Colada, Mai Tai und acht alkoholfreie Varianten.</p>
                 </div>
               </div>
               <div className="card">
                 <div className="thumb c4" />
                 <div className="body">
                   <h3>Café und Kuchen</h3>
-                  <p>Hausgemachte Kuchen und Torten aus Urdinkelmehl.</p>
+                  <p>Hausgemachte Kuchen und Torten aus Urdinkelmehl, Hot Roti Pistacchio.</p>
                 </div>
               </div>
             </div>
             <p className="menu-note">
               Die ganze Karte: Roti, Burger, Toast, Salate und Karibik-Specials —
-              dazu Bier vom Fass, regionale Weine und acht alkoholfreie Cocktails.
+              dazu Bier vom Fass, regionale Weine und erfrischende Cocktails.
             </p>
           </div>
         </section>
 
         {/* ---------- Am Tisch bestellen ---------- */}
-        <section className="alt">
+        <section>
           <div className="wrap">
             <div className="section-head">
-              <p className="eyebrow">Neu — Scan und Order</p>
+              <p className="eyebrow">Scan und Order</p>
               <h2>Am Tisch bestellen, ohne Warten</h2>
               <p>
                 An jedem Tisch klebt ein QR-Code. Scannen, Speisen und Getränke
@@ -190,7 +249,7 @@ export default function Home() {
         <section id="events" className="green-band">
           <div className="wrap">
             <div className="section-head">
-              <p className="eyebrow" style={{ color: "var(--gold)" }}>Live in der Karibik</p>
+              <p className="eyebrow" style={{ color: "var(--gold-light)" }}>Live in der Karibik</p>
               <h2>Was bei uns los ist</h2>
               <p>
                 Open-Air-Bühne im Garten, Musikerstammtisch, Themenabende — Events
@@ -223,7 +282,7 @@ export default function Home() {
                 <div className="time">ab 20:00</div>
               </div>
             </div>
-            <p style={{ marginTop: "26px", color: "#CFE0D4", fontSize: ".95rem" }}>
+            <p style={{ marginTop: "28px", color: "#CFE0D4", fontSize: ".95rem" }}>
               Tische für Events bitte per WhatsApp oder telefonisch reservieren: 09261 51361.
             </p>
           </div>
@@ -288,6 +347,33 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ---------- Unser Maskottchen ---------- */}
+        <section>
+          <div className="wrap">
+            <div className="split" style={{ gridTemplateColumns: '1fr 1.05fr' }}>
+              <div className="shot">
+                <img
+                  src={IMAGES.pug}
+                  alt="Unser Mops macht es sich auf dem Sofa gemütlich"
+                />
+              </div>
+              <div className="copy">
+                <p className="eyebrow">Zum Wohlfühlen</p>
+                <h2>Hier darf man bleiben</h2>
+                <p>
+                  Wie unser Hausmops weißt auch du: manchmal ist der beste Plan, 
+                  einfach zu bleiben. Mit einem Cocktail in der Hand, guter Musik 
+                  im Ohr und der entspannten Karibik-Atmosphäre um dich herum.
+                </p>
+                <p>
+                  Ob für einen schnellen Kaffee, einen langen Abend mit Freunden 
+                  oder einfach nur zum Durchatmen — bei uns bist du willkommen.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* ---------- CTA-Band ---------- */}
         <section className="cta-band">
           <div className="wrap">
@@ -303,7 +389,7 @@ export default function Home() {
             <p className="rating-line">4,6 von 5 bei Google</p>
             <p className="rating-sub">aus 288 Rezensionen — und einem zweiten 4,6 bei Restaurant Guru</p>
             <div className="praise">
-              <span>„wie Urlaub"</span>
+              <span>{'"wie Urlaub"'}</span>
               <span>der Garten</span>
               <span>die Cocktails</span>
               <span>die Atmosphäre</span>
@@ -312,6 +398,14 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* ---------- Gebäude Impression ---------- */}
+        <section className="full-image-section">
+          <img 
+            src={IMAGES.exterior_day}
+            alt="Das historische Sandsteingebäude am Stadtgraben mit der einladenden Fassade"
+          />
+        </section>
       </main>
 
       {/* ---------- Footer ---------- */}
@@ -319,13 +413,18 @@ export default function Home() {
         <div className="wrap">
           <div className="footer-grid">
             <div>
-              <div className="brand-f">Café Bar Karibik</div>
-              <p>Die karibische Oase mitten in Kronach — Garten, Cocktails, Küche, Live-Musik und die Galerie Ambiente.</p>
-              <p style={{ marginTop: "14px" }}>
+              <div className="brand-f">
+                Café Bar <span style={{ color: 'var(--gold)', fontStyle: 'italic' }}>Karibik</span>
+              </div>
+              <p style={{ fontSize: '.75rem', letterSpacing: '.15em', textTransform: 'uppercase', color: 'var(--gold-light)', marginBottom: '12px' }}>
+                Ambiente &amp; Cocktails
+              </p>
+              <p>Die karibische Oase mitten in Kronach — Cocktails, Küche, Live-Musik und die Galerie Ambiente.</p>
+              <p style={{ marginTop: "16px" }}>
                 Stadtgraben 15<br />
                 96317 Kronach
               </p>
-              <p style={{ marginTop: "10px" }}>
+              <p style={{ marginTop: "12px" }}>
                 <a href={TEL}>09261 51361</a> · <a href={WA_RESERVE}>WhatsApp 0152 27658034</a><br />
                 <a href="mailto:info@galerie-ambiente.de">info@galerie-ambiente.de</a>
               </p>
@@ -357,7 +456,7 @@ export default function Home() {
           <div className="foot-bottom">
             <span>© 2026 Café Bar Karibik · Galerie Ambiente · Martin Ludwig</span>
             <span>
-              <a href="#">Impressum</a> · <a href="#">Datenschutz</a> — Vorschau-Dummy
+              <a href="#">Impressum</a> · <a href="#">Datenschutz</a>
             </span>
           </div>
         </div>
