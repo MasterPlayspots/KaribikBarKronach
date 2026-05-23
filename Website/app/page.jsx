@@ -14,6 +14,7 @@ const IMAGES = {
   interior_seating: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/610001_211015_143345OK_galerie2_800px-PgL2qA6IP4qxBvR0q3PtuUpSyHLHLJ.jpg",
   bar_pirate: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/610001_211015_143345OK_galerie6_800px-2ZQZh9Tk5TSB3JQErIN59O4ZueuIxg.jpg",
   pug: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/610001_211015_143345OK_galerie10_800px-QmyJEmLYy3eXmmRpcNjaLNPzfMoGsH.jpg",
+  logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image.png-4OwKJig7nSwBsoNE27C8f2eabeOwEz.jpeg",
 };
 
 export default function Home() {
@@ -22,11 +23,16 @@ export default function Home() {
       {/* ---------- Header ---------- */}
       <header className="site-header">
         <div className="wrap">
+          <img 
+            src={IMAGES.logo} 
+            alt="Café Bar Karibik Logo" 
+            className="header-logo"
+          />
           <div className="brand">
             <span className="main-title">
-              <span className="cafe-bar">Café Bar</span> <b>Karibik</b>
+              <span className="cafe-bar">Cafe - Bar</span> <b>Karibik</b>
             </span>
-            <span className="sub">Ambiente &amp; Cocktails</span>
+            <span className="sub">Galerie Ambiente</span>
           </div>
           <nav className="nav">
             <a href="#ambiente">Ambiente</a>
@@ -249,7 +255,7 @@ export default function Home() {
         <section id="events" className="green-band">
           <div className="wrap">
             <div className="section-head">
-              <p className="eyebrow" style={{ color: "var(--gold-light)" }}>Live in der Karibik</p>
+              <p className="eyebrow" style={{ color: "var(--sand-warm)" }}>Live in der Karibik</p>
               <h2>Was bei uns los ist</h2>
               <p>
                 Open-Air-Bühne im Garten, Musikerstammtisch, Themenabende — Events
@@ -282,7 +288,7 @@ export default function Home() {
                 <div className="time">ab 20:00</div>
               </div>
             </div>
-            <p style={{ marginTop: "28px", color: "#CFE0D4", fontSize: ".95rem" }}>
+            <p style={{ marginTop: "28px", color: "rgba(255,255,255,.7)", fontSize: ".95rem" }}>
               Tische für Events bitte per WhatsApp oder telefonisch reservieren: 09261 51361.
             </p>
           </div>
@@ -414,10 +420,10 @@ export default function Home() {
           <div className="footer-grid">
             <div>
               <div className="brand-f">
-                Café Bar <span style={{ color: 'var(--gold)', fontStyle: 'italic' }}>Karibik</span>
+                Cafe - Bar <span style={{ color: 'var(--mango)', fontStyle: 'italic' }}>Karibik</span>
               </div>
-              <p style={{ fontSize: '.75rem', letterSpacing: '.15em', textTransform: 'uppercase', color: 'var(--gold-light)', marginBottom: '12px' }}>
-                Ambiente &amp; Cocktails
+              <p style={{ fontSize: '.75rem', letterSpacing: '.15em', textTransform: 'uppercase', color: 'var(--sand-warm)', marginBottom: '12px' }}>
+                Galerie Ambiente
               </p>
               <p>Die karibische Oase mitten in Kronach — Cocktails, Küche, Live-Musik und die Galerie Ambiente.</p>
               <p style={{ marginTop: "16px" }}>
