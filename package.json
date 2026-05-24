@@ -1,0 +1,10 @@
+{
+  "name": "cafe-bar-karibik",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "cd Website && npm run dev",
+    "build": "cd Website && npm run build",
+    "start": "cd Website && npm run start"
+  }
+}
